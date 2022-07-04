@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "iJChTqgDfkoDD28Z9HMR7W6vX5bpbcKhVWe0AkcOp10=",
+  "Source": "TokenGenerator.API",
+  "BasePath": "_content/TokenGenerator.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
