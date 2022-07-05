@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace TokenGenerator.Domain.Models;
+namespace TokenGenerator.Domain.Models.ValuteEntities;
 [Serializable, XmlRoot(ElementName = "Valute")]
 public class Valute
 {

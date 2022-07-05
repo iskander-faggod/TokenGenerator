@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using TokenGenerator.Domain.Models.ValuteEntities;
 
 namespace TokenGenerator.Domain.Models;
 
