@@ -11,6 +11,7 @@ using TokenGenerator.Services.Services;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration["ConnectionStrings:connectionString"];
+var defaultCorsPolicyName = "DefaultName";
 
 
 // Add services to the container.
@@ -51,6 +52,23 @@ builder.Services.AddAuthentication(options =>
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
         };
     });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        defaultCorsPolicyName,
+        builder =>
+        {
+            builder.WithOrigins(
+                    configuration.GetSection("http://localhost:3000")
+                        .GetChildren()
+                        .Select(x => x.Value)
+                        .ToArray())
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowedToAllowWildcardSubdomains();
+        });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -64,7 +82,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(defaultCorsPolicyName);
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

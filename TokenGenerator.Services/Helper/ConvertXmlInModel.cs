@@ -15,7 +15,7 @@ public static class ConvertXmlInModel
         var response = request.GetResponse();
 
         Stream receiveStream = response.GetResponseStream();
-        StreamReader readStream = new StreamReader(receiveStream, Encoding.UTF8);
+        var readStream = new StreamReader(receiveStream, Encoding.UTF8);
 
         var result = readStream.ReadToEnd();
         return result;

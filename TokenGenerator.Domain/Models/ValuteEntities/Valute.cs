@@ -4,7 +4,7 @@ namespace TokenGenerator.Domain.Models;
 [Serializable, XmlRoot(ElementName = "Valute")]
 public class Valute
 {
-    [XmlAttribute("Id")]
+    [XmlAttribute("ID")]
     public string Id { get;  set; }
     
     [XmlElement(ElementName = "NumCode")]
