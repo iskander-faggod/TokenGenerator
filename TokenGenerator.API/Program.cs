@@ -18,6 +18,7 @@ var defaultCorsPolicyName = "DefaultName";
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IValuteService, ValuteService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddDbContext<AuthContext>(options =>
 {
